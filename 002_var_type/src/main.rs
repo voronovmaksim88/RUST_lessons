@@ -84,7 +84,8 @@ fn main() {
     let b = "Rust"; // тип &str
     println!("b: {}", b);
 
-    let mut mut_vat: u32 = 22; // изменяемая переменная
+    // Изменяемая переменная
+    let mut mut_vat: u32 = 22;
     mut_vat = mut_vat + 1;
     println!("mut_vat = {mut_vat}");
 }
