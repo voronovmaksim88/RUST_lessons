@@ -66,8 +66,7 @@ fn main() {
     let b = false;
     println!("b: {}", b);
 
-    // Символьный тип
-    let a: char = 'a';
+    let a: char = 'a'; // Символьный тип
     println!("a: {}", a);
 
     let b = 'b'; // тип char
