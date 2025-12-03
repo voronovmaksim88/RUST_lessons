@@ -12,6 +12,7 @@ target
 dist
 dist-ssr
 *.local
+.rustc_info.json
 
 # Editor directories and files
 .vscode/*
