@@ -1,0 +1,5 @@
+const PI: f64 = 3.141592653589793;
+
+fn main() {
+    println!("Pi = {}", PI);
+}
