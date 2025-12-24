@@ -91,6 +91,7 @@ fn main() {
     // - `{:^6}` — по центру
     println!("year left-aligned : '{:<6}'", year);
     println!("year right-aligned: '{:>6}'", year);
+    println!("year centered     : '{:^6}'", year);
 
     // ----------------------------------------------------------------------------
     // 6) Теневое переопределение (shadowing)
