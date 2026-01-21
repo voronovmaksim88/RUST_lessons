@@ -89,6 +89,12 @@ fn main() {
     println!("  op(3, 4) = {}", op(3, 4));
     println!();
 
+    println!("Тема 6.4 Суммирование по условию (предикат)");
+    let values = [1, 2, 3, 4, 5];
+    let even_sum = sum_by(&values, is_even);
+    println!("  sum_by even = {}", even_sum);
+    println!();
+
     // ========================================================================
     // РЕЗЮМЕ
     // ========================================================================
@@ -143,11 +149,7 @@ fn multiply(a: i32, b: i32) -> i32 {
 
 // Возврат кортежа из функции.
 fn min_max(a: i32, b: i32) -> (i32, i32) {
-    if a < b {
-        (a, b)
-    } else {
-        (b, a)
-    }
+    if a < b { (a, b) } else { (b, a) }
 }
 
 // Пример раннего выхода.
@@ -190,4 +192,19 @@ fn apply(value: i32, f: fn(i32) -> i32) -> i32 {
 // Обычная функция подходит там, где ожидается fn(i32) -> i32.
 fn square_value(x: i32) -> i32 {
     x * x
+}
+
+// Суммирует значения, которые удовлетворяют предикату; предикат имеет сигнатуру fn(i32) -> bool.
+fn sum_by(values: &[i32], predicate: fn(i32) -> bool) -> i32 {
+    let mut total = 0;
+    for &v in values {
+        if predicate(v) {
+            total += v;
+        }
+    }
+    total
+}
+
+fn is_even(x: i32) -> bool {
+    x % 2 == 0
 }
