@@ -89,7 +89,7 @@ fn main() {
     println!("  op(3, 4) = {}", op(3, 4));
     println!();
 
-    println!("Тема 6.4 Суммирование по условию (предикат)");
+    println!("╔═══Тема 6.4 Суммирование по условию (предикат)═══╗");
     let values = [1, 2, 3, 4, 5];
     let even_sum = sum_by(&values, is_even);
     println!("  sum_by even = {}", even_sum);
