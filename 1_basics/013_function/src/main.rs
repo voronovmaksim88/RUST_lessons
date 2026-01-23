@@ -89,7 +89,18 @@ fn main() {
     println!("  op(3, 4) = {}", op(3, 4));
     println!();
 
-    println!("╔═══Тема 6.4 Суммирование по условию (предикат)═══╗");
+    println!("╔═══ 6.4 Функция как результат другой функции ═══╗");
+    let operation1 = choose_operation(1);
+    operation1(5, 4);
+
+    let operation2 = choose_operation(2);
+    operation2(5, 4);
+
+    let operation3 = choose_operation(3);
+    operation3(5, 4);
+    println!();
+
+    println!("╔═══Тема 6.5 Суммирование по условию (предикат)═══╗");
     let values = [1, 2, 3, 4, 5];
     let even_sum = sum_by(&values, is_even);
     println!("  sum_by even = {}", even_sum);
@@ -192,6 +203,19 @@ fn apply(value: i32, f: fn(i32) -> i32) -> i32 {
 // Обычная функция подходит там, где ожидается fn(i32) -> i32.
 fn square_value(x: i32) -> i32 {
     x * x
+}
+
+// Возвращает выбранную операцию как функцию.
+fn choose_operation(n: i32) -> fn(i32, i32) {
+    match n {
+        1 => |a, b| { println!("{}", a + b); },
+        2 => multiply_print,
+        _ => |a, b| { println!("a={}  b={}", a, b); },
+    }
+}
+
+fn multiply_print(a: i32, b: i32) {
+    println!("{}", a * b);
 }
 
 // Суммирует значения, которые удовлетворяют предикату; предикат имеет сигнатуру fn(i32) -> bool.
