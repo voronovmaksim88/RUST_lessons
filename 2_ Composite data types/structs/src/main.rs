@@ -16,7 +16,7 @@ fn main() {
 
     struct EmptyStruct;
 
-    let empty = EmptyStruct;
+    let _empty = EmptyStruct;
     println!("   Создана пустая структура EmptyStruct");
     println!("   Используется редко, но может быть полезна для типов-маркеров\n");
 
@@ -400,6 +400,8 @@ fn main() {
 
     println!("   Point 1: {:?}", p1); // Debug работает
     println!("   Point 2: {:?}", p2);
+    println!("   Point 1: x = {}, y = {}", p1.x, p1.y);
+    println!("   Point 2: x = {}, y = {}", p2.x, p2.y);
 
     #[derive(Debug, Clone)]
     struct Vehicle {
@@ -416,7 +418,15 @@ fn main() {
 
     let car2 = car1.clone(); // Clone работает
     println!("   Автомобиль 1: {:?}", car1);
-    println!("   Автомобиль 2 (клон): {:?}\n", car2);
+    println!("   Автомобиль 2 (клон): {:?}", car2);
+    println!(
+        "   Автомобиль 1: brand = {}, model = {}, year = {}",
+        car1.brand, car1.model, car1.year
+    );
+    println!(
+        "   Автомобиль 2: brand = {}, model = {}, year = {}\n",
+        car2.brand, car2.model, car2.year
+    );
 
     // ------------------------------------------------------------------------
     // 16. СТРУКТУРЫ СО ССЫЛКАМИ (требуют lifetime аннотаций)
@@ -496,7 +506,14 @@ fn main() {
         .gpu(String::from("NVIDIA RTX 3080"))
         .build();
 
-    println!("   Собран компьютер: {:?}\n", pc);
+    println!("   Собран компьютер: {:?}", pc);
+    println!(
+        "   Параметры: CPU = {}, RAM = {} GB, Storage = {} GB, GPU = {}\n",
+        pc.cpu,
+        pc.ram,
+        pc.storage,
+        pc.gpu.as_deref().unwrap_or("None")
+    );
 
     // ------------------------------------------------------------------------
     // 18. NEWTYPE ПАТТЕРН
@@ -520,8 +537,13 @@ fn main() {
 
     let distance_km = Kilometers(100.0);
     let distance_miles = distance_km.to_miles();
+    let distance_km_back = distance_miles.to_kilometers();
 
-    println!("   {} км = {:.2} миль\n", distance_km.0, distance_miles.0);
+    println!("   {} км = {:.2} миль", distance_km.0, distance_miles.0);
+    println!(
+        "   {:.2} миль = {:.2} км\n",
+        distance_miles.0, distance_km_back.0
+    );
 
     // ------------------------------------------------------------------------
     // 19. ПРАКТИЧЕСКИЙ ПРИМЕР: СИСТЕМА УПРАВЛЕНИЯ ЗАДАЧАМИ
@@ -565,6 +587,7 @@ fn main() {
                 "   [{}] Task #{}: {} (Priority: {:?})",
                 status, self.id, self.title, self.priority
             );
+            println!("       Description: {}", self.description);
         }
     }
 
@@ -575,15 +598,23 @@ fn main() {
         Priority::High,
     );
 
-    let mut task2 = Task::new(
+    let task2 = Task::new(
         2,
         String::from("Написать проект"),
         String::from("Применить знания на практике"),
         Priority::Medium,
     );
 
+    let task3 = Task::new(
+        3,
+        String::from("Сделать обзор"),
+        String::from("Кратко описать ключевые идеи"),
+        Priority::Low,
+    );
+
     task1.display();
     task2.display();
+    task3.display();
 
     task1.complete();
     println!("\n   После выполнения первой задачи:");
