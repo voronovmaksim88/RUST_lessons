@@ -4,6 +4,7 @@ use std::cmp::Ordering;
 use std::io;
 
 fn main() {
+    #[cfg(windows)]
     let _ = colored::control::set_virtual_terminal(true);
     println!("Я загадал число от 1 до 100. Угадай его за 7 попыток чтобы выиграть!");
     let secret_number = rand::rng().random_range(1..=100);
