@@ -1,5 +1,5 @@
 // 9. Palindrome Number
-// Given an integer x, return true if x is a , and false otherwise.
+// Given an integer x, return true if x is a palindrom, and false otherwise.
 
 // Example 1:
 // Input: x = 121
@@ -32,8 +32,23 @@ impl Solution {
     pub fn is_palindrome(x: i32) -> bool {
         if x < 0 {
             return false;
-        } else {
+        }
+        let mut ost;
+        let mut cel = x;
+        let mut my_vec: Vec<i32> = vec![];
+        while cel > 0 {
+            ost = cel % 10;
+            cel = cel / 10;
+            my_vec.push(ost);
+            //println!("ost={}, cel={}", ost, cel);
+        }
+        //println!("my_vec={:?}", my_vec);
+        let mut clone = my_vec.clone();
+        clone.reverse();
+        if my_vec == clone {
             return true;
+        } else {
+            return false;
         }
     }
 }
