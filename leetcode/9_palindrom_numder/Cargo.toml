@@ -1,0 +1,6 @@
+[package]
+name = "palindrom_numder"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]

@@ -23,25 +23,23 @@ impl Solution {
 // .\main.exe
 
 // мне пока непонятное, но очень быстрое о скорости решение
+// очень быстрое решение от deepseek
 // use std::collections::HashMap;
 
 // impl Solution {
 //     pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
-//         let mut snums:HashMap<&i32,usize> = HashMap::new();
-//         for (i,elem) in nums.iter().enumerate() {
-//             snums.insert(elem, i);
+//         let mut map = HashMap::new();
+
+//         for (i, &num) in nums.iter().enumerate() {
+//             let complement = target - num;
+
+//             if let Some(&index) = map.get(&complement) {
+//                 return vec![index as i32, i as i32];
+//             }
+
+//             map.insert(num, i);
 //         }
 
-//         for (i,elem) in nums.iter().enumerate() {
-//             match snums.get(&(target - elem)) {
-//                 Some(&first_index) => {
-//                     if first_index != i {
-//                         return vec![first_index as i32, i as i32]
-//                         }
-//                     },
-//                 None => (),
-//             }
-//         }
-//     return vec![-1];
+//         vec![] // или panic! если пара гарантированно существует
 //     }
 // }
