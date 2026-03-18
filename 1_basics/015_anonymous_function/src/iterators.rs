@@ -14,21 +14,20 @@ pub fn demonstrate_iterators() {
 
     // map — применяет замыкание к каждому элементу
     let squares: Vec<i32> = numbers
-        .iter()
-        .map(|x| x * x)
-        .collect();
+        .iter() // Создаёт ИТЕРАТОР по ссылкам на элементы вектора
+        .map(|x| x * x) // метод итератора, который применяет ЗАМЫКАНИЕ к каждому элементу
+        .collect(); // "Собирает" все элементы из итератора в коллекцию
     println!("Квадраты чисел: {:?}", squares);
 
     // filter — оставляет только элементы, для которых замыкание вернёт true
-    let even_numbers: Vec<&i32> = numbers
-        .iter()
-        .filter(|x| *x % 2 == 0)
-        .collect();
+    let even_numbers: Vec<&i32> = numbers.iter().filter(|x| *x % 2 == 0).collect();
     println!("Чётные числа: {:?}", even_numbers);
 
     // fold — «сворачивает» коллекцию в одно значение
-    let sum_of_numbers: i32 = numbers.iter().fold(0, |acc, x| acc + x);
-    println!("Сумма всех чисел: {}", sum_of_numbers);
+    let sum_of_numbers: i32 = numbers
+        .iter()
+        .fold(0, |acc, x| if x % 2 == 0 { acc + x } else { acc });
+    println!("Сумма всех чётных чисел: {}", sum_of_numbers);
 
     // Комбинирование нескольких методов в цепочку
     let result: i32 = numbers

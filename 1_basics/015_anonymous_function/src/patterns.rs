@@ -9,20 +9,20 @@
 pub fn demonstrate_complex_closures() {
     println!("\n=== Пример 11: Замыкания с несколькими операторами ===");
 
-    let complex_calculation = |x: i32, y: i32| -> i32 {
-        let step1 = x + y;
-        let step2 = step1 * 2;
-        let step3 = step2 - 10;
-
-        if step3 > 0 {
-            step3 * step3
-        } else {
-            step3.abs()
-        }
+    // Площадь прямоугольного треугольника: S = (a * b) / 2
+    let triangle_area = |a: i32, b: i32| -> i32 {
+        let area = a * b / 2;
+        area
     };
 
-    println!("Сложное вычисление для (5, 3): {}", complex_calculation(5, 3));
-    println!("Сложное вычисление для (2, 1): {}", complex_calculation(2, 1));
+    println!(
+        "Площадь треугольника с катетами (6, 8): {}",
+        triangle_area(6, 8)
+    );
+    println!(
+        "Площадь треугольника с катетами (5, 10): {}",
+        triangle_area(5, 10)
+    );
 }
 
 /// Демонстрирует сохранение замыканий в структурах.
