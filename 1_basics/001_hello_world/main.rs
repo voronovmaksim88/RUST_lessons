@@ -1,5 +1,4 @@
 fn main() {
-    // Print "Привет, мир!" to the console in Russian
     println!("Привет, мир!");
 }
 
