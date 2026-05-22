@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd *)",
+      "Bash(git mv *)",
+      "Bash(mv 006_anyhow_thiserror 007_anyhow_thiserror)",
+      "Bash(mv 005_custom_errors 006_custom_errors)",
+      "Bash(mv 004_question_mark_operator 005_question_mark_operator)",
+      "Bash(mv 003_result 004_result)",
+      "Bash(mkdir -p 003_if_let_and_let_else/src)"
+    ]
+  }
+}
