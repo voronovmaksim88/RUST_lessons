@@ -1,0 +1,6 @@
+[package]
+name = "asref_asmut_borrow_toowned"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]

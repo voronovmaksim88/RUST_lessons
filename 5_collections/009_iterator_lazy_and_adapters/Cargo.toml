@@ -1,0 +1,6 @@
+[package]
+name = "iterator_lazy_and_adapters"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]

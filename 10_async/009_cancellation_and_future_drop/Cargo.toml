@@ -1,0 +1,6 @@
+[package]
+name = "cancellation_and_future_drop"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]

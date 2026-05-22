@@ -39,7 +39,7 @@
 ### Запуск примеров
 
 ```bash
-cd "RUST_lessons/2_ Composite data types/struct_in_RUST"
+cd "RUST_lessons/2_composite_data_types/004_structs"
 cargo run
 ```
 
