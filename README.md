@@ -1,6 +1,7 @@
 # RUST_lessons
 
 Учебный курс по языку Rust, выстроенный по принципу **«от простого к сложному, от часто используемого к редкому»**. Каждый урок — это самостоятельный Cargo-проект, который можно запустить командой `cargo run`.
+Текущая структура: **15 блоков (включая 2.5) и 106 уроков**.
 
 ## Структура курса
 
@@ -23,6 +24,8 @@
 | `013_function` | Функции, параметры, возврат значений |
 | `014_const` | Константы `const` и статические переменные `static` |
 | `015_anonymous_function` | Замыкания (closures), захват переменных |
+| `016_raw_and_byte_strings` | Строковые литералы: escape-последовательности, raw strings `r"..."`, байтовые строки `b"..."` |
+| `017_labeled_loops_and_break_values` | Метки циклов `'outer`, `break value`, возврат значения из `loop` |
 
 ### 2. `2_composite_data_types/` — Составные типы данных
 
@@ -36,6 +39,16 @@
 | `range` | Диапазоны `..` и `..=` |
 | `vec` | Динамический массив `Vec<T>` |
 
+### 2.5 `2_5_patterns/` — Паттерны и деструктуризация
+
+| Урок | Тема |
+|---|---|
+| `001_pattern_syntax` | Основы паттернов: wildcard, `_`, `..`, `|`, range-паттерны |
+| `002_destructuring_in_let_and_params` | Деструктуризация в `let` и в параметрах функций |
+| `003_match_guards_or_at_binding` | Match guards (`if` в ветках) и `@`-binding |
+| `004_ref_refmut_ranges` | `ref` / `ref mut`, диапазоны в паттернах, управление заимствованием |
+| `005_if_let_while_let_let_else` | Связка `if let`, `while let`, `let ... else` на практике |
+
 ### 3. `3_ownership_and_borrowing/` — Владение и заимствование
 
 | Урок | Тема |
@@ -45,6 +58,7 @@
 | `003_slices` | Срезы `&str` и `&[T]` |
 | `004_lifetimes_basics` | Базовые аннотации времён жизни `'a` |
 | `005_string_vs_str` | Различия между `String` и `&str` |
+| `006_copy_vs_clone` | Разница `Copy` и `Clone`, влияние на `move` и владение |
 
 ### 4. `4_error_handling/` — Обработка ошибок
 
@@ -81,6 +95,9 @@
 | `006_associated_types` | Ассоциированные типы (`type Item;` в трейтах) |
 | `007_operator_overloading` | Перегрузка операторов через `std::ops` (`Add`, `Sub`, `Index`) |
 | `008_common_traits` | Часто используемые трейты: `Display`, `From`/`Into`, `Iterator`, `IntoIterator` |
+| `009_impl_trait` | `impl Trait` в аргументах и возвращаемых значениях |
+| `010_default_methods_and_supertraits` | Методы по умолчанию в трейтах и supertraits (`trait B: A`) |
+| `011_blanket_impls_and_coherence` | Blanket impls, orphan rule и coherence |
 
 ### 7. `7_modules_and_packages/` — Модули и пакеты
 
@@ -91,6 +108,8 @@
 | `003_cargo_basics` | `Cargo.toml`, зависимости, features |
 | `004_workspaces` | Многокрейтовые workspaces |
 | `005_tests_and_docs` | `#[test]`, `#[cfg(test)]`, doc-tests |
+| `006_visibility_levels` | Уровни видимости: `pub`, `pub(crate)`, `pub(super)`, `pub(in path)` |
+| `007_attributes` | Системные атрибуты: `#[derive]`, `#[cfg]`, `#[allow]`, `#[must_use]`, `#[non_exhaustive]` |
 
 ### 8. `8_smart_pointers/` — Умные указатели
 
@@ -112,6 +131,8 @@
 | `003_mutex_arc` | Разделяемое состояние через `Arc<Mutex<T>>` |
 | `004_send_sync` | Маркер-трейты `Send` и `Sync` |
 | `005_rayon` | Параллельные итераторы через крейт `rayon` |
+| `006_atomics_and_ordering` | Атомики (`AtomicUsize`) и модели порядка памяти (`Ordering`) |
+| `007_condvar_barrier_thread_local` | `Condvar`, `Barrier`, `thread_local!` |
 
 ### 10. `10_async/` — Асинхронное программирование
 
@@ -122,6 +143,7 @@
 | `003_async_io` | Асинхронные файлы и сеть |
 | `004_select_join` | `tokio::select!`, `join!` |
 | `005_streams` | `Stream` и `tokio-stream` |
+| `006_pin_unpin_and_async_traits` | `Pin` / `Unpin`, async в трейтах (native и `async-trait`) |
 
 ### 11. `11_macros/` — Макросы
 
@@ -138,6 +160,7 @@
 | `001_unsafe_basics` | Блок `unsafe { }`, сырые указатели |
 | `002_ffi_c` | FFI: `extern "C"`, вызов C-библиотек |
 | `003_inline_assembly` | Inline assembly через `asm!` (обзорно) |
+| `004_unsafecell_union_repr` | `UnsafeCell`, `union`, `#[repr(C)]`, `#[repr(transparent)]`, обзор `#![no_std]` |
 
 ### 13. `13_advanced_patterns/` — Продвинутые паттерны
 
@@ -148,6 +171,7 @@
 | `003_state_machines` | Машины состояний через систему типов (typestate) |
 | `004_builder_pattern` | Типобезопасный паттерн Builder |
 | `005_newtype_pattern` | Паттерн Newtype (углублённо) |
+| `006_type_aliases_and_never_type` | Type aliases (`type Foo = ...`) и never type `!` |
 
 ### 14. `14_ecosystem/` — Популярные крейты экосистемы
 
@@ -167,6 +191,28 @@
 | `book/` | Учебные проекты из «The Rust Programming Language» (например, `guess_the_number`) |
 | `leetcode/` | Решения задач с LeetCode на Rust |
 
+## Обязательные темы сейчас
+
+- Блоки **1 -> 2 -> 2.5 -> 3 -> 4 -> 6 -> 7** как основа, без них дальше сложно.
+- Темы-критичные для повседневного Rust: `Copy/Clone`, `impl Trait`, паттерны (`@`, guards, `ref/ref mut`), расширенная видимость `pub(...)`.
+- Новые уроки в этих блоках пока каркасные: структура и точки входа готовы, детальный материал будет добавляться поэтапно.
+
+## Расширение после базы
+
+- Углубления по параллелизму: `9_concurrency/006-007`.
+- Углубления по async: `10_async/006`.
+- Углубления по low-level: `12_unsafe_and_ffi/004`.
+
+## Покрытие ключевых тем языка
+
+- [x] Базовый синтаксис, управление потоком, функции.
+- [x] Составные типы и коллекции.
+- [x] Владение и заимствование, включая `Copy/Clone`.
+- [x] Pattern matching как отдельный этап (`2_5_patterns`).
+- [x] Трейты и обобщения, включая `impl Trait`, supertraits, coherence.
+- [x] Модули, видимость и системные атрибуты.
+- [x] Расширения async/concurrency/unsafe добавлены в структуру курса.
+
 ## Как запустить любой урок
 
 Каждый урок — самостоятельный Cargo-проект:
@@ -184,3 +230,5 @@ cargo run
 - **3** (владение и заимствование) — сердце Rust;
 - **4** (`Option`, `Result`, `?`) — встречаются в каждой функции;
 - **6** (трейты и обобщения) — без них вся стандартная библиотека выглядит магией.
+
+Рекомендуемая последовательность старта: **1 -> 2 -> 2.5 -> 3 -> 4 -> 5 -> 6 -> 7**, затем переход к блокам 8-14.
