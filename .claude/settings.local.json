@@ -8,7 +8,9 @@
       "Bash(mv 004_question_mark_operator 005_question_mark_operator)",
       "Bash(mv 003_result 004_result)",
       "Bash(mkdir -p 003_if_let_and_let_else/src)",
-      "Bash(cargo run *)"
+      "Bash(cargo run *)",
+      "Bash(dir \"D:\\\\MyProgGit\\\\RUST_lessons\\\\01_basics\")",
+      "Read(//mnt/d/MyProgGit/RUST_lessons/**)"
     ]
   }
 }
