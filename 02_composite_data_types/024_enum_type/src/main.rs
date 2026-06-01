@@ -63,6 +63,23 @@ impl DayOfWeek {
     }
 }
 
+// Ещё один простой C-подобный enum: арифметические операции.
+enum OperationType {
+    Add,      // сложение
+    Subtract, // вычитание
+    Multiply, // умножение
+    Divide,   // деление
+}
+
+fn get_result(x: i32, y: i32, op: OperationType) -> i32 {
+    match op {
+        OperationType::Add => x + y,
+        OperationType::Subtract => x - y,
+        OperationType::Multiply => x * y,
+        OperationType::Divide => x / y,
+    }
+}
+
 // ============================================================
 //  Пример 2: Enum с явными числовыми значениями (дискриминантами)
 // ============================================================
@@ -246,6 +263,25 @@ fn main() {
     for day in &days {
         println!("{} — выходной? {}", day.russian_name(), day.is_weekend());
     }
+    println!();
+
+    // Ещё один простой C-подобный enum: арифметические операции.
+    println!("--- OperationType ---");
+    let a = 10;
+    let b = 5;
+    let mut op = OperationType::Add;
+    let mut result = get_result(a, b, op);
+    println!("{} + {} = {}", a, b, result); // 15
+
+    op = OperationType::Subtract;
+    result = get_result(a, b, op);
+    println!("{} - {} = {}", a, b, result); // 5
+
+    result = get_result(a, b, OperationType::Multiply);
+    println!("{} * {} = {}", a, b, result); // 50
+
+    result = get_result(a, b, OperationType::Divide);
+    println!("{} / {} = {}", a, b, result); // 2
 
     println!();
 
@@ -355,44 +391,4 @@ fn main() {
     // Комбинаторы Result: unwrap_or, unwrap_or_else, map_err и т.д.
     let result = safe_divide(100.0, 3.0).unwrap_or(0.0);
     println!("100 / 3 (с запасным значением): {:.2}", result);
-
-    // ======================================================
-    println!();
-    println!("========== ПРИМЕР 7 (бонус): старый пример OperationType ==========");
-    // Оригинальный пример из урока — он тоже остаётся!
-    let a = 10;
-    let b = 5;
-    let mut op = OperationType::Add;
-
-    let mut result = get_result(a, b, op);
-    println!("result = {}", result); // result = 15
-
-    // меняем операцию
-    op = OperationType::Subtract;
-    result = get_result(a, b, op);
-    println!("result = {}", result); // result = 5
-
-    // умножение
-    result = get_result(a, b, OperationType::Multiply);
-    println!("result (multiply) = {}", result); // result = 50
-
-    // деление
-    result = get_result(a, b, OperationType::Divide);
-    println!("result = {}", result); // result = 2
-}
-
-fn get_result(x: i32, y: i32, op: OperationType) -> i32 {
-    match op {
-        OperationType::Add => x + y,
-        OperationType::Subtract => x - y,
-        OperationType::Multiply => x * y,
-        OperationType::Divide => x / y,
-    }
-}
-
-enum OperationType {
-    Add,      // сложение
-    Subtract, // вычитание
-    Multiply, // умножение
-    Divide,   // деление
 }
