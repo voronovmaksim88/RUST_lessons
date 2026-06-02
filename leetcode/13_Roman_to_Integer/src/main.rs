@@ -38,7 +38,7 @@ impl Solution {
                 'M' => n += 1000,
                 _ => {}
             }
-            println!("{}", n);
+            // println!("{}", n);
             prev_l = l;
         }
         n
