@@ -25,6 +25,8 @@
 
 fn main() {
     println!("Привет, мир!");
+
+    println!("\n✅ Урок по выводу Hello World завершён!");
 }
 
 /*

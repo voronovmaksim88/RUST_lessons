@@ -184,5 +184,5 @@ fn main() {
     
     println!("   {} - это {}", num, description);
 
-    println!("\n=== Конец урока ===");
+    println!("\n✅ Урок по конструкциям if-else завершён!");
 }

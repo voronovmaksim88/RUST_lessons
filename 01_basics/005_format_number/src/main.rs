@@ -57,4 +57,6 @@ fn main() {
 
     let hex_addr: usize = 0xDEAD_BEEF;
     println!("Шестнадцатеричный адрес: {:#x}", hex_addr);
+
+    println!("\n✅ Урок по форматированию чисел завершён!");
 }

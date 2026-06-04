@@ -391,4 +391,6 @@ fn main() {
     // Комбинаторы Result: unwrap_or, unwrap_or_else, map_err и т.д.
     let result = safe_divide(100.0, 3.0).unwrap_or(0.0);
     println!("100 / 3 (с запасным значением): {:.2}", result);
+
+    println!("\n✅ Урок по перечислениям (enum) завершён!");
 }

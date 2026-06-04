@@ -228,5 +228,5 @@ fn main() {
     let result2 = check_value(7) || check_value(3);
     println!("  Результат: {} (вторая проверка не выполнилась)", result2);
 
-    println!("\n=== КОНЕЦ УРОКА ===");
+    println!("\n✅ Урок по условным выражениям завершён!");
 }

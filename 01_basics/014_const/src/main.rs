@@ -126,5 +126,5 @@ fn main() {
     // let runtime_value = 5;
     // const BAD: i32 = runtime_value; // ОШИБКА: runtime значение нельзя в const
 
-    println!("=== Пример завершён ===");
+    println!("\n✅ Урок по константам (const и static) завершён!");
 }

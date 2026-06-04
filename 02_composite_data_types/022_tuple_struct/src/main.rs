@@ -191,4 +191,6 @@ fn main() {
     // нельзя передать struct_point туда, где ожидается (i32, i32), и наоборот.
     println!("\nКортеж:      ({}, {})", tuple_point.0, tuple_point.1);
     println!("Tuple struct: ({}, {})", struct_point.0, struct_point.1);
+
+    println!("\n✅ Урок по кортежным структурам (tuple struct) завершён!");
 }
