@@ -10,7 +10,8 @@
       "Bash(mkdir -p 003_if_let_and_let_else/src)",
       "Bash(cargo run *)",
       "Bash(dir \"D:\\\\MyProgGit\\\\RUST_lessons\\\\01_basics\")",
-      "Read(//mnt/d/MyProgGit/RUST_lessons/**)"
+      "Read(//mnt/d/MyProgGit/RUST_lessons/**)",
+      "Bash(cargo build *)"
     ]
   }
 }

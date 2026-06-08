@@ -289,10 +289,13 @@ fn main() {
     let b: u8 = 0b1000_0000; // 128
     println!("\nПереполнение при сдвиге:");
     println!("  b      = {:08b} ({})", b, b);
+    // b << 1 вызвало бы панику в debug-режиме (attempt to shift with overflow).
+    // wrapping_shl сдвигает с потерей выходящих битов, без паники.
+    let b_shifted = b.wrapping_shl(1);
     println!(
-        "  b << 1 = {:08b} ({}) — старший бит потерян!",
-        b << 1,
-        b << 1
+        "  b.wrapping_shl(1) = {:08b} ({}) — старший бит потерян!",
+        b_shifted,
+        b_shifted
     );
 
     // Практический пример: быстрое умножение
