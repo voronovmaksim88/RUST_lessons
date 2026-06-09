@@ -27,16 +27,16 @@ fn main() {
     println!("\n✅ Урок по массивам в Rust завершён!");
 }
 
-mod basics;
 mod access_len;
-mod iteration;
+mod advanced_init;
+mod array_vs_vec;
+mod basics;
+mod compare_search;
 mod defaults_methods_copy;
-mod multidim_slices;
-mod iterators;
-mod safety;
 mod extra_methods;
 mod functions;
-mod array_vs_vec;
-mod advanced_init;
-mod compare_search;
+mod iteration;
+mod iterators;
+mod multidim_slices;
+mod safety;
 mod summary;
