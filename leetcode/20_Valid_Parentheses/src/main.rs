@@ -26,7 +26,15 @@
 // Example 5:
 // Input: s = "([)]"
 // Output: false
+struct Solution;
+
+impl Solution {
+    pub fn is_valid(s: String) -> bool {
+        true
+    }
+}
 
 fn main() {
-    println!("Hello, world!");
+    let test_str = "(1+1)".to_string();
+    Solution::is_valid(test_str);
 }
