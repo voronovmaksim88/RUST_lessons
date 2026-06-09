@@ -11,7 +11,10 @@
       "Bash(cargo run *)",
       "Bash(dir \"D:\\\\MyProgGit\\\\RUST_lessons\\\\01_basics\")",
       "Read(//mnt/d/MyProgGit/RUST_lessons/**)",
-      "Bash(cargo build *)"
+      "Bash(cargo build *)",
+      "Bash(mkdir \"C:\\\\Users\\\\Maksim\\\\AppData\\\\Roaming\\\\Claude\\\\local-agent-mode-sessions\\\\skills-plugin\\\\1e6ed0b1-d29b-44a4-b782-5d4b8dda5ef3\\\\1ade4c3e-a445-4df8-a651-73b1754994a0\\\\skills\\\\ru-tech-terms\")",
+      "Bash(dir /s /b \"D:\\\\MyProgGit\\\\RUST_lessons\")",
+      "Bash(findstr \"015\")"
     ]
   }
 }
