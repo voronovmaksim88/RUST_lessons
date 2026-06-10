@@ -36,19 +36,46 @@ impl Solution {
         for bracket in s.chars() {
             if bracket == '(' || bracket == '{' || bracket == '[' {
                 s_vec.push(bracket);
+            } else {
+                match bracket {
+                    ')' => {
+                        if s_vec.last() == Some(&'(') {
+                            s_vec.pop();
+                        }
+                    }
+                    '}' => {
+                        if s_vec.last() == Some(&'{') {
+                            s_vec.pop();
+                        }
+                    }
+                    ']' => {
+                        if s_vec.last() == Some(&'[') {
+                            s_vec.pop();
+                        }
+                    }
+                    _ => {}
+                }
+            }
+            if bracket == ')' || bracket == '}' || bracket == ']' {
+                if Some(&bracket) == s_vec.last() {
+                    s_vec.pop();
+                }
             }
         }
 
-        for c in s_vec {
+        for c in &s_vec {
             print!("{:?}", c);
         }
         println!("");
-
-        true
+        if s_vec.len() == 0 {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 
 fn main() {
-    let test_str = "()".to_string();
-    Solution::is_valid(test_str);
+    let test_str = "([])".to_string();
+    println!("{}", Solution::is_valid(test_str));
 }
