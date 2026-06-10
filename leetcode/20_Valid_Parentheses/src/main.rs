@@ -30,11 +30,25 @@ struct Solution;
 
 impl Solution {
     pub fn is_valid(s: String) -> bool {
+        let mut s_vec: Vec<char> = vec![]; // Это вектор который хранит скобки, если есть
+        // последняя открывающая скобка того же типа что закрывающая , то они взаимноуничтожаются
+        // если в конце цикла вектро пуст, значит выражение валидно.
+        for bracket in s.chars() {
+            if bracket == '(' || bracket == '{' || bracket == '[' {
+                s_vec.push(bracket);
+            }
+        }
+
+        for c in s_vec {
+            print!("{:?}", c);
+        }
+        println!("");
+
         true
     }
 }
 
 fn main() {
-    let test_str = "(1+1)".to_string();
+    let test_str = "()".to_string();
     Solution::is_valid(test_str);
 }
