@@ -58,7 +58,7 @@ fn main() {
     let s2 = String::from("текст из литерала");
     println!("   String::from(...)   : \"{s2}\"");
 
-    // .to_string() — метод трейта Display, работает на любом &str
+    // .to_string() — метод трейта ToString (автоматически есть у всех типов с Display)
     let s3 = "тот же результат".to_string();
     println!("   \"...\".to_string()   : \"{s3}\"");
 

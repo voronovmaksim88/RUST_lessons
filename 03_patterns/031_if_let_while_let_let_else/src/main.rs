@@ -13,6 +13,7 @@ fn main() {
     println!("\n1. Проблема: match для одного варианта громоздок");
 
     #[derive(Debug)]
+    #[allow(dead_code)] // не все варианты используются — это учебный пример
     enum Direction { North, South, East, West }
 
     let dir = Direction::North;
@@ -40,6 +41,7 @@ fn main() {
 
     // --- enum с данными ---
     #[derive(Debug)]
+    #[allow(dead_code)]
     enum Shape {
         Circle(f64),
         Rectangle(f64, f64),
@@ -60,7 +62,7 @@ fn main() {
     }
     let point2 = (3_i32, 5_i32);
     if let (0, y) = point2 {
-        println!("   Это не выведется — x != 0");
+        println!("   Это не выведется — x != 0 (y={y})");
     } else {
         println!("   Точка ({}, {}) не на оси Y", point2.0, point2.1);
     }
@@ -182,6 +184,7 @@ fn main() {
 
     // --- enum с кортежем внутри ---
     #[derive(Debug)]
+    #[allow(dead_code)]
     enum Packet { Data(u8, Vec<u8>), Ack(u32), Err }
 
     let pkt = Packet::Data(3, vec![0xDE, 0xAD, 0xBE]);
@@ -293,6 +296,7 @@ fn main() {
 
     // --- let...else с enum ---
     #[derive(Debug)]
+    #[allow(dead_code)]
     enum Response { Json(String), Binary(Vec<u8>), Empty }
 
     fn handle(resp: Response) -> String {
@@ -384,7 +388,7 @@ fn main() {
 
         let cmd = parse_cmd(raw);
 
-        // quit — ранний выход через let...else внутри цикла
+        // quit — обрабатываем отдельно через if let и переходим к следующей итерации
         if let Cmd::Quit = cmd {
             println!("   [quit] Завершаем работу");
             running = false;
