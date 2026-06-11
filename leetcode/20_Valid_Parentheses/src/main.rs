@@ -41,24 +41,25 @@ impl Solution {
                     ')' => {
                         if s_vec.last() == Some(&'(') {
                             s_vec.pop();
+                        } else {
+                            s_vec.push(bracket);
                         }
                     }
                     '}' => {
                         if s_vec.last() == Some(&'{') {
                             s_vec.pop();
+                        } else {
+                            s_vec.push(bracket);
                         }
                     }
                     ']' => {
                         if s_vec.last() == Some(&'[') {
                             s_vec.pop();
+                        } else {
+                            s_vec.push(bracket);
                         }
                     }
                     _ => {}
-                }
-            }
-            if bracket == ')' || bracket == '}' || bracket == ']' {
-                if Some(&bracket) == s_vec.last() {
-                    s_vec.pop();
                 }
             }
         }
@@ -76,6 +77,6 @@ impl Solution {
 }
 
 fn main() {
-    let test_str = "([])".to_string();
+    let test_str = "]".to_string();
     println!("{}", Solution::is_valid(test_str));
 }
